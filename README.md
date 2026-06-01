@@ -63,10 +63,10 @@ idf.py build
 
 ## Flash
 
-Due to the ESP32-C5 revision (v1.0), use `--force` to skip the revision check:
+Due to the ESP32-C5 revision (v1.0), you need to use ESP-IDF version 5.5.3+ (but keep using 5.x): 
 
 ```bash
-esptool.py --chip esp32c5 -p <PORT> -b 460800 --before=default_reset --after=hard_reset write_flash --force --flash_mode dio --flash_freq 80m --flash_size 2MB 0x2000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/red_raccoon_mud.bin
+esptool.py --chip esp32c5 -p <PORT> -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 2MB 0x2000 build/bootloader/bootloader.bin 0x8000 build/partition_table/partition-table.bin 0x10000 build/red_raccoon_mud.bin
 ```
 
 (Replace `<PORT>` with your serial port, e.g. `/dev/cu.usbmodem*` on macOS.)
